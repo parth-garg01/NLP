@@ -12,6 +12,10 @@ build/
 *.log
 backend/storage/uploads/*
 backend/storage/outputs/*
+backend/training/datasets/*
+backend/training/outputs/*
 !backend/storage/uploads/.gitkeep
 !backend/storage/outputs/.gitkeep
+!backend/training/datasets/.gitkeep
+!backend/training/outputs/.gitkeep
 backend/voxcraft.db

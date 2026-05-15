@@ -1,6 +1,6 @@
 # VoxCraft
 
-Offline-first STT/TTS platform with REST APIs and modern web UI.
+Offline-first STT/TTS platform with REST APIs, modern web UI, and model fine-tuning pipeline.
 
 ## Stack
 - Frontend: Next.js + TypeScript + Tailwind
@@ -36,6 +36,32 @@ API docs: http://localhost:8000/docs
 - `POST /api/stt`
 - `POST /api/tts`
 - `GET /api/history`
+
+## Training Pipeline
+
+### STT dataset download (Common Voice)
+```bash
+cd backend
+python -m training.scripts.download_stt_dataset --config training/configs/training_config.json
+```
+
+### TTS dataset download/validation (LJSpeech)
+```bash
+cd backend
+python -m training.scripts.download_tts_dataset --config training/configs/training_config.json
+```
+
+### Fine-tune Whisper
+```bash
+cd backend
+python -m training.scripts.finetune_whisper --config training/configs/training_config.json
+```
+
+### Fine-tune Coqui TTS
+```bash
+cd backend
+python -m training.scripts.finetune_coqui --config training/configs/training_config.json
+```
 
 ## Docker
 ```bash
